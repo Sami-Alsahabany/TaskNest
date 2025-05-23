@@ -1,0 +1,345 @@
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo", sans-serif, Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #1e293b;
+  direction: rtl;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.container {
+  max-width: 720px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* النموذج */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="date"],
+select {
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+  flex-grow: 1;
+  min-width: 150px;
+  max-width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+select:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 8px #0ea5e9aa;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 16px;
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #0284c7;
+}
+
+button[hidden] {
+  display: none !important;
+}
+
+/* مجموعة الفلترة والبحث */
+.filter-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-group input,
+.filter-group select {
+  max-width: 300px;
+}
+
+/* عداد المهام */
+.task-counters {
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #334155;
+}
+
+/* رسالة الخطأ */
+.error-message {
+  color: #dc2626;
+  font-weight: 600;
+  margin-bottom: 15px;
+  min-height: 24px; /* لتحافظ على المساحة عند عدم وجود رسالة */
+  text-align: center;
+}
+
+/* قائمة المهام */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.task-item {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease;
+}
+
+.task-item.completed {
+  background-color: #d1fae5;
+  color: #16a34a;
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.task-text {
+  flex: 1;
+  cursor: pointer;
+  user-select: none;
+  font-size: 17px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-text .task-main-text {
+  font-weight: 600;
+}
+
+.task-text .task-details {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* عرض الأولوية */
+.priority-high {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.priority-medium {
+  color: #f97316;
+  font-weight: 700;
+}
+
+.priority-low {
+  color: #22c55e;
+  font-weight: 700;
+}
+
+/* حاوية أزرار الإجراء */
+.task-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+
+.action-btn.complete-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.action-btn.complete-btn:hover {
+  background-color: #059669;
+}
+
+.action-btn.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.action-btn.delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+.action-btn.edit-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.action-btn.edit-btn:hover {
+  background-color: #2563eb;
+}
+
+/* تحسين تجربة اللمس */
+.action-btn:focus {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* استيراد وتصدير */
+.import-export {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.import-export button {
+  background-color: #64748b;
+  font-size: 16px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.import-export button:hover,
+.import-export button:focus {
+  background-color: #475569;
+}
+
+/* مفتاح الوضع الليلي */
+.switch {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 26px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #0ea5e9;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* الوضع الليلي */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .container {
+  background-color: #1e1e1e;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.9);
+}
+
+body.dark input,
+body.dark select {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark input:focus,
+body.dark select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px #3b82f6aa;
+}
+
+body.dark button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+body.dark button:hover,
+body.dark button:focus {
+  background-color: #2563eb;
+}
+
+body.dark .task-item {
+  background-color: #2c2c2c;
+  box-shadow: none;
+}
+
+body.dark .task-item.completed {
+  background-color: #166534;
+  color: #bbf7d0;
+  text-decoration: line-through;
+}
+
+body.dark .import-export button {
+  background-color: #475569;
+}
+
+body.dark .import-export button:hover,
+body.dark .import-export button:focus {
+  background-color: #334155;
+}

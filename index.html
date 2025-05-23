@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قائمة مهام متكاملة</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>📝 قائمة مهام متكاملة</h1>
+
+    <!-- نموذج إضافة وتحرير المهام -->
+    <form id="taskForm" class="input-group" novalidate>
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="أدخل مهمة جديدة أو عدل مهمة..."
+        autocomplete="off"
+        required
+        aria-describedby="errorMsg"
+      />
+      <select id="prioritySelect" aria-label="أولوية المهمة">
+        <option value="عالية">عالية 🔴</option>
+        <option value="متوسطة" selected>متوسطة 🟠</option>
+        <option value="منخفضة">منخفضة 🟢</option>
+      </select>
+      <input type="date" id="dueDateInput" aria-label="تاريخ الاستحقاق (اختياري)" />
+      <select id="repeatSelect" aria-label="تكرار المهمة">
+        <option value="none" selected>لا تتكرر</option>
+        <option value="daily">يومي</option>
+        <option value="weekly">أسبوعي</option>
+        <option value="monthly">شهري</option>
+      </select>
+      <button type="submit" id="addTaskBtn">💾 حفظ</button>
+      <button type="button" id="cancelEditBtn" hidden>❌ إلغاء التعديل</button>
+    </form>
+
+    <!-- البحث والتصفية -->
+    <div class="filter-group">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="🔍 ابحث في المهام..."
+        aria-label="بحث في المهام"
+      />
+      <select id="filterSelect" aria-label="تصفية المهام">
+        <option value="all" selected>كل المهام</option>
+        <option value="completed">المهام المكتملة</option>
+        <option value="pending">المهام غير المكتملة</option>
+      </select>
+    </div>
+
+    <!-- عداد المهام -->
+    <div id="taskCounters" class="task-counters" aria-live="polite" role="status"></div>
+
+    <!-- رسالة الخطأ -->
+    <p id="errorMsg" class="error-message" aria-live="assertive"></p>
+
+    <!-- قائمة المهام -->
+    <ul id="taskList" class="task-list" aria-label="قائمة المهام"></ul>
+
+    <!-- أدوات التصدير والاستيراد -->
+    <div class="import-export">
+      <button id="exportBtn" title="تصدير المهام">⬇️ تصدير المهام</button>
+      <input type="file" id="importInput" accept=".json" hidden />
+      <button id="importBtn" title="استيراد المهام">⬆️ استيراد المهام</button>
+    </div>
+
+    <!-- مفتاح الوضع الليلي -->
+    <label class="switch" title="تبديل الوضع الليلي">
+      <input type="checkbox" id="darkModeToggle" aria-label="تبديل الوضع الليلي" />
+      <span class="slider round"></span>
+    </label>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
